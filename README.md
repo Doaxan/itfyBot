@@ -1,4 +1,4 @@
-# iftyBot
+# itfyBot
 
 #### How-to run bot:
 
@@ -7,8 +7,8 @@
 - Run docker:
 
 ```sh
-$ docker build -t ifty_bot -f Dockerfile.multistage .
+$ docker build -t itfy_bot -f Dockerfile.multistage .
 ```
 ```sh
-$ docker run -d --name ifty_bot ifty_bot
+$ docker run -d --name itfy_bot itfy_bot
 ```

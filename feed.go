@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/mmcdole/gofeed"
 	"log"
@@ -33,7 +34,9 @@ func checkFeed(oldFeed, newFeed *gofeed.Feed, ids map[int64]struct{}, bot *tgbot
 			return false
 		}(newI); !find {
 			for id := range ids {
-				if _, err := bot.Send(tgbotapi.NewMessage(id, newI.Link)); err != nil {
+				msg := tgbotapi.NewMessage(id, fmt.Sprintf(`<a href="%s">%s</a>`, newI.Link, newI.Title))
+				msg.ParseMode = "HTML"
+				if _, err := bot.Send(msg); err != nil {
 					log.Println("bot.Send err:", err)
 				}
 				time.Sleep(config.SendTimeoutMsec * time.Millisecond)

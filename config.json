@@ -1,0 +1,6 @@
+{
+  "telegramApiToken": "token",
+  "telegramApiDebug": false,
+  "rssUpdateTimeSec": 10,
+  "sendTimeoutMsec": 500
+}
